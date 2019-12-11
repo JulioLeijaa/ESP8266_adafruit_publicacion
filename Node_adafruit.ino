@@ -1,17 +1,17 @@
-#include <ESP8266WiFi.h>            //conexiones esp8266
+#include <ESP8266WiFi.h>
 #include <WiFiClient.h>             //D0---bomba(IN1 RELAY)
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
 #include <SoftwareSerial.h>
 SoftwareSerial serial(12,14);    // (Rx, tx) d6 d5
 #include <ArduinoJson.h>
-#define WLAN_SSID "Leija" //Q6_Cesar---Servidor---Red Telcel LO---Irasema---LAPTOP-M1VFKTVQ 8181
-#define WLAN_PASS "123456789" //12345abc---Orimar1741,---jc30072000---123456789---3fD246;8
+#define WLAN_SSID "----"
+#define WLAN_PASS "----"
 /************************* Adafruit.io Setup *********************************/
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
-#define AIO_USERNAME  "Cesar_utt"
-#define AIO_KEY       "05037193ee4a460eb2e5ba8bc1e91a45"
+#define AIO_USERNAME  "-------"
+#define AIO_KEY       "-------"
 /************ Global State  ******************/
 // Create an ESP8266 WiFiClient class to connect to the MQTT server.
 WiFiClient client;
@@ -38,7 +38,9 @@ void setup() {
   
   Serial.println();
   Serial.print("Connecting to ");Serial.println(WLAN_SSID);
-  //WiFi.encryptionType(ENC_TYPE_CCMP); WiFi.begin(WLAN_SSID, WLAN_PASS); WiFi.printDiag(Serial);
+  WiFi.encryptionType(ENC_TYPE_CCMP); 
+  WiFi.begin(WLAN_SSID, WLAN_PASS); 
+  WiFi.printDiag(Serial);
   
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
